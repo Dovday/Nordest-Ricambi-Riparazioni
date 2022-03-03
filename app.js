@@ -15,17 +15,19 @@ $(window).scroll(function() {
 const primaryNav = document.querySelector('.primary-navigation');
 const navToggle = document.querySelector('.mobile-nav-toggle');
 
-navToggle.addEventListener('click', () => {
+$(document).ready(function () {
+    $(document).click(function (event) {
+        const clickover = $(event.target);
+        const visibility = primaryNav.getAttribute('data-visible');
+        
+        if (visibility === 'true') {
+            // if(clickover !== navToggle) {
+                primaryNav.setAttribute('data-visible', false);
+                navToggle.setAttribute('aria-expanded', false);
 
-    const visibility = primaryNav.getAttribute('data-visible');
-
-    if(visibility === 'false') {
-        primaryNav.setAttribute('data-visible', true);
-        navToggle.setAttribute('aria-expanded', true);
-    } else if(visibility === 'true') {
-        primaryNav.setAttribute('data-visible', false);
-        navToggle.setAttribute('aria-expanded', false);
-    }
-
+        } else if(visibility === 'false') {
+            primaryNav.setAttribute('data-visible', true);
+            navToggle.setAttribute('aria-expanded', true);
+        }
+    });
 });
-
