@@ -23,8 +23,7 @@ $(document).ready(function () {
         if (visibility === 'true') {
                 primaryNav.setAttribute('data-visible', false);
                 navToggle.setAttribute('aria-expanded', false);
-
-        } else if(visibility === 'false' && clickover === navToggle) {
+        } else if(visibility === 'false' && clickover.hasClass('mobile-nav-toggle')) {
             primaryNav.setAttribute('data-visible', true);
             navToggle.setAttribute('aria-expanded', true);
         }
