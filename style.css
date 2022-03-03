@@ -238,8 +238,23 @@ header > * {
 
 .primary-navigation {
   list-style: none;
-  justify-content: end;
+  /* justify-content: end; */
 }
+
+@media screen and  (min-width: 50em)  {
+  @supports not (-ms-flex-align: end) {
+    .button-navigation {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+    }
+
+    .primary-navigation {
+      margin-top: 3rem;
+    }
+  }
+}
+
 
 .primary-navigation a {
   font-size: clamp(.5rem, 5vw, 1rem);
@@ -248,7 +263,6 @@ header > * {
 
 .button-navigation {
   list-style: none;
-  justify-content: end;
 }
 
 .button-navigation a {
@@ -277,7 +291,7 @@ header > * {
   }
 }
 
-@media screen and (max-width: 45em) {
+@media screen and (max-width: 50em) {
   .primary-navigation {
 
       flex-direction: column;
@@ -285,14 +299,17 @@ header > * {
 
       position: fixed;
       z-index: 1000;
-      
-      background: hsl(var(--clr-palette-500));
+      background: hsl(var(--clr-palette-600));
       inset: 0 0 0 20%;
 
       padding: min(60vh, 20rem) 3em;
 
       transform: translateX(100%);
       transition: transform 250ms ease-out;
+  }
+
+  .primary-navigation a {
+    color: hsl(var(--clr-white));
   }
 
   .top-nav {
@@ -305,7 +322,7 @@ header > * {
 
   .mobile-nav-toggle {
       display: block;
-
+      
       position: fixed;
       z-index: 9999;
       
@@ -337,7 +354,6 @@ HERO
 */
 
 .hero {
-  /* height: min(70vh, 100rem); */
   flex-direction: column;
   justify-content: space-between;
   padding-block-end: 4rem;
@@ -382,7 +398,7 @@ HERO
   letter-spacing: .25rem;
 }
 
-@media only screen and (max-width: 35rem) {
+@media only screen and (max-width: 50em) {
   .hero {
     text-align: center;
   }
@@ -448,7 +464,7 @@ HERO
 	max-width: 80rem;
 }
 
-@media only screen and (max-width: 35rem) {
+@media only screen and (max-width: 35em) {
   .gallery {
     padding-inline: 2.5rem;
   }
@@ -507,7 +523,7 @@ HERO
 	color: hsl(var(--clr-black), .75);
 }
 
-@media only screen and (min-width: 40rem) {
+@media only screen and (min-width: 40em) {
   
   .card:nth-child(odd) .img{ 
     float:left; 
@@ -557,7 +573,7 @@ i.far {
 	color: hsl(var(--clr-black), .65);
 }
 
-@media only screen and (max-width: 40rem) {
+@media only screen and (max-width: 40em) {
   .phrase p{
     display: none;
   }
@@ -637,13 +653,13 @@ footer a:hover {
   flex-wrap: wrap;
 }
 
-@media only screen and (min-width: 40rem) {
+@media only screen and (min-width: 40em) {
   .ft-main {
     justify-content: space-around;
   }
 }
 
-@media only screen and (min-width: 75rem) {
+@media only screen and (min-width: 75em) {
   .ft-main {
     justify-content: space-evenly;
   }
