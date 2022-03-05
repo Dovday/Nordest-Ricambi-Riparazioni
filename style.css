@@ -302,10 +302,10 @@ header > * {
       background: hsl(var(--clr-palette-600));
       inset: 0 0 0 20%;
 
-      padding: min(60vh, 20rem) 3em;
+      padding: min(60vh, 10rem) 3em;
 
       transform: translateX(100%);
-      transition: transform 300ms ease-out;
+      transition: transform 1000ms ease-out;
   }
 
   .primary-navigation a {
