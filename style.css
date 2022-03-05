@@ -292,6 +292,10 @@ header > * {
 }
 
 @media screen and (max-width: 50em) {
+  .logo {
+    margin: 1rem 0rem 0rem 2rem;
+  }
+
   .primary-navigation {
 
       flex-direction: column;
@@ -449,6 +453,10 @@ HERO
 /* ===========
     MAIN
   ============ */
+  
+  main {
+    outline: 1em solid hsl(var(--clr-palette-200));
+  }
 
 /* to make footer stick to the bottom */
 .container {
