@@ -305,7 +305,7 @@ header > * {
       padding: min(60vh, 10rem) 3em;
 
       transform: translateX(100%);
-      transition: transform 500ms ease-out;
+      transition: transform 400ms ease-out;
   }
 
   .primary-navigation a {
