@@ -238,7 +238,6 @@ header > * {
 
 .primary-navigation {
   list-style: none;
-  /* justify-content: end; */
 }
 
 @media screen and  (min-width: 50em)  {
@@ -255,10 +254,22 @@ header > * {
   }
 }
 
-
 .primary-navigation a {
   font-size: clamp(.5rem, 5vw, 1rem);
   text-decoration: none;
+}
+
+.primary-navigation a.active {
+  text-decoration: underline
+}
+
+@media screen and (max-width: 50em)  {
+  .primary-navigation a.active {
+    padding: .5rem;
+    color: hsl(var(--clr-black));
+    background: white;
+    text-decoration: none;
+  }
 }
 
 .button-navigation {
