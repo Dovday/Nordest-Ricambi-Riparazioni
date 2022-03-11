@@ -306,9 +306,8 @@ header > * {
 
 @media screen and (max-width: 50em) {
   .primary-navigation {
-
       flex-direction: column;
-      --gap: 2em;
+      gap: 2em;
 
       position: fixed;
       z-index: 1000;
