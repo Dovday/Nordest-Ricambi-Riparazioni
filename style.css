@@ -228,8 +228,8 @@ header > * {
 }
 
 .logo {
-  width: 32px;
-  margin: 2rem;
+  max-width: min(30vw, 175px);
+  margin-left: 2rem;
 }
 
 .close-icon {
@@ -238,8 +238,8 @@ header > * {
 
 .primary-navigation {
   list-style: none;
+  gap: clamp(1em, 3vw, 3em);
 }
-
 
 .primary-navigation a {
   font-size: clamp(.5rem, 5vw, 1rem);
@@ -305,10 +305,6 @@ header > * {
 }
 
 @media screen and (max-width: 50em) {
-  .logo {
-    margin: 1rem 0rem 0rem 2rem;
-  }
-
   .primary-navigation {
 
       flex-direction: column;
