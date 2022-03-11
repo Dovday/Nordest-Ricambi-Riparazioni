@@ -54,7 +54,7 @@ $(document).on('click', 'a[href^="#"]', function (event) {
 });
 
 // =============================================
-// to get first visable element to update navbar
+// update primary navigation
 // =============================================
 
 // Get all elements that have an ID defined
@@ -64,32 +64,50 @@ const elem = document.querySelectorAll("*[id]");
 window.addEventListener("scroll", navHighlighter);
 
 function navHighlighter() {
+    // 2-8
 
-    const current = document.querySelector("#main-page")
-    const bounding = current.getBoundingClientRect();
-    const elem_id = current.getAttribute("id");
-    console.log(bounding);
-
-    if(bounding.top <= 1){
-        document.querySelector(".primary-navigation a[href*=" + elem_id + "]").classList.add("active");
-    } else {
-        document.querySelector(".primary-navigation a[href*=" + elem_id + "]").classList.remove("active");
+    l = 8;
+    while ((l--) && (l >= 2)) {
+        let bounding = elem[l].getBoundingClientRect();
+        if (bounding.top <= 1) {
+            break;
+        }
     }
 
-  
-//   // Now we loop through sections to get height, top and ID values for each
-//   elem.forEach(current => {
-//     const bounding = current.getBoundingClientRect();
-//     const elem_id = current.getAttribute("id");
-//     console.log(bounding);
-//     /*
-//     - If our current scroll position enters the space where current section on screen is, add .active class to corresponding navigation link, else remove it
-//     - To know which link needs an active class, we use sectionId variable we are getting while looping through sections as an selector
-//     */
-//     if(bounding < 0){
-//       document.querySelector(".primary-navigation a[href*=" + elem_id + "]").classList.add("active");
-//     } else {
-//       document.querySelector(".primary-navigation a[href*=" + elem_id + "]").classList.remove("active");
-//     }
-//   });
+    let current = elem[l];
+    let elem_id = current.getAttribute("id");
+    
+    primaryNav.querySelector("a[href*=" + elem_id + "]").classList.add("active");
+
+    for(let i = 2; i < 9; i++) {
+        let each_id = elem[i].getAttribute("id");
+        if(each_id != elem_id) {
+            primaryNav.querySelector("a[href*=" + each_id + "]").classList.remove("active");
+        }
+    };
 }
+
+/*
+==============================
+FUNCTION TO GO BACK TO THE TOP
+==============================
+*/
+//Get the button:
+mybutton = document.querySelector(".topBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "flex";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+} 

@@ -340,6 +340,8 @@ header > * {
       
       position: fixed;
       z-index: 9999;
+
+      cursor: pointer;
       
       background-color: transparent;
       background-image: url("./assets/bars-solid.svg");
@@ -404,8 +406,10 @@ HERO
 }
 
 .title {    
+  text-align: center;
   padding-block: 5rem;
-  padding-inline: 7.5rem 5rem;
+
+  padding-inline: min(12.5vw, 17.5rem);
   font-size: clamp(2rem, 7.25vw, 4.125rem);
   
   font-weight: 900;
@@ -414,9 +418,6 @@ HERO
 }
 
 @media only screen and (max-width: 50em) {
-  .hero {
-    text-align: center;
-  }
   .title {
     padding-inline: 1rem;
   }
@@ -461,13 +462,38 @@ HERO
 	}
 }
 
-/* ===========
-    MAIN
-  ============ */
+/* 
+===========
+MAIN
+=========== 
+*/
   
-  main {
-    outline: 1em solid hsl(var(--clr-palette-200));
-  }
+.topBtn {
+  display: none; /* Hidden by default */
+  align-items: center;
+  position: fixed; /* Fixed/sticky position */
+  bottom: 60px; /* Place the button at the bottom of the page */
+  left: 40px; /* Place the button 30px from the right */
+  z-index: 999; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  
+  background-color: hsl(var(--clr-black), .65);
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  aspect-ratio: 1;
+  border-radius: 45%; /* Rounded corners */
+  color: white;
+}
+
+.topBtn:hover {
+  background-color: hsl(var(--clr-palette-300));
+  color:hsl(var(--clr-black));
+}
+
+main {
+  outline: 1em solid hsl(var(--clr-palette-200));
+}
 
 /* to make footer stick to the bottom */
 .container {
