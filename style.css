@@ -240,19 +240,6 @@ header > * {
   list-style: none;
 }
 
-@media screen and  (min-width: 50em)  {
-  @supports not (-ms-flex-align: end) {
-    .button-navigation {
-      position: absolute;
-      top: 1rem;
-      right: 2rem;
-    }
-
-    .primary-navigation {
-      margin-top: 3rem;
-    }
-  }
-}
 
 .primary-navigation a {
   font-size: clamp(.5rem, 5vw, 1rem);
@@ -274,11 +261,26 @@ header > * {
 
 .button-navigation {
   list-style: none;
+  justify-content: end;
 }
 
 .button-navigation a {
   font-size: clamp(.5rem, 5vw, 1rem);
   text-decoration: none;
+}
+
+@media screen and  (min-width: 50em)  {
+  @supports not (-ms-flex-align: end) {
+    .button-navigation {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+    }
+
+    .primary-navigation {
+      margin-top: 3rem;
+    }
+  }
 }
 
 .selected {
@@ -470,6 +472,7 @@ MAIN
   
 .topBtn {
   display: none; /* Hidden by default */
+  justify-content: center;
   align-items: center;
   position: fixed; /* Fixed/sticky position */
   bottom: 60px; /* Place the button at the bottom of the page */
