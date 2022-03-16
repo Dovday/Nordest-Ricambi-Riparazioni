@@ -64,27 +64,22 @@ const elem = document.querySelectorAll("*[id]");
 window.addEventListener("scroll", navHighlighter);
 
 function navHighlighter() {
-    // 2-8
+    elem.forEach(current => {
 
-    l = 8;
-    while ((l--) && (l >= 2)) {
-        let bounding = elem[l].getBoundingClientRect();
-        if (bounding.top <= 1) {
-            break;
+        const bounding = current.getBoundingClientRect();
+        const height = -current.clientHeight;
+
+        const elem_id = current.getAttribute("id");
+
+        if((elem_id !== "call-action-navigation") && (elem_id !== "primary-navigation") && (elem_id !== "about-us")) {
+            if ((bounding.top >= height) && (bounding.top <= 0)) {
+                console.log("in here");
+                primaryNav.querySelector("a[href*=" + elem_id + "]").classList.add("active");
+            } else {
+                primaryNav.querySelector("a[href*=" + elem_id + "]").classList.remove("active");
+            }
         }
-    }
-
-    let current = elem[l];
-    let elem_id = current.getAttribute("id");
-    
-    primaryNav.querySelector("a[href*=" + elem_id + "]").classList.add("active");
-
-    for(let i = 2; i < 9; i++) {
-        let each_id = elem[i].getAttribute("id");
-        if(each_id != elem_id) {
-            primaryNav.querySelector("a[href*=" + each_id + "]").classList.remove("active");
-        }
-    };
+    });
 }
 
 /*
