@@ -62,13 +62,7 @@ function navHighlighter() {
 
         const elem_id = current.getAttribute("id");
 
-        if((elem_id !== "call-action-navigation") && (elem_id !== "primary-navigation") && (elem_id !== "about-us")) {
-            
-            console.log(elem_id);
-            console.log(height);
-            console.log(bounding.top);
-            console.log("---");
-            
+        if((elem_id !== "call-action-navigation") && (elem_id !== "primary-navigation") && (elem_id !== "about-us")) {           
             if ((bounding.top > height) && (bounding.top < 1.25)) {
                 primaryNav.querySelector("a[href*=" + elem_id + "]").classList.add("active");
             } else {
