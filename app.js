@@ -33,20 +33,11 @@ $(document).ready(function () {
 
 // SMOOTH SCROLLING WHEN CLICKING ANCHOR LINK
 
-// document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-//     anchor.addEventListener('click', function (e) {
-//         e.preventDefault();
-
-//         document.querySelector(this.getAttribute('href')).scrollIntoView({
-//             behavior: 'smooth'
-//         });
-//     });
-// });
-
-
-// support for old browsers
+// support for old browsers too
 $(document).on('click', 'a[href^="#"]', function (event) {
     event.preventDefault();
+
+    navHighlighter();
 
     $('html, body').animate({
         scrollTop: $($.attr(this, 'href')).offset().top
@@ -62,7 +53,6 @@ const elem = document.querySelectorAll("*[id]");
 
 // Add an event listener listening for scroll
 window.addEventListener("scroll", navHighlighter);
-window.addEventListener("click", navHighlighter);
 
 function navHighlighter() {
     elem.forEach(current => {
