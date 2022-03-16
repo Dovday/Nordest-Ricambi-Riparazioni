@@ -58,16 +58,18 @@ function navHighlighter() {
     elem.forEach(current => {
 
         const bounding = current.getBoundingClientRect();
-        const height = -(current.clientHeight+1);
+        const height = -(current.clientHeight-1);
 
         const elem_id = current.getAttribute("id");
 
         if((elem_id !== "call-action-navigation") && (elem_id !== "primary-navigation") && (elem_id !== "about-us")) {
             
+            console.log(elem_id);
+            console.log(height);
             console.log(bounding.top);
+            console.log("---");
             
-            if ((bounding.top >= height) && (bounding.top < 1)) {
-                console.log("in here");
+            if ((bounding.top > height) && (bounding.top < 1.25)) {
                 primaryNav.querySelector("a[href*=" + elem_id + "]").classList.add("active");
             } else {
                 primaryNav.querySelector("a[href*=" + elem_id + "]").classList.remove("active");
