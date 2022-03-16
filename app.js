@@ -76,7 +76,7 @@ function navHighlighter() {
             
             console.log(bounding.top);
             
-            if ((bounding.top >= height) && (bounding.top <= 1)) {
+            if ((bounding.top >= height) && (bounding.top < 1)) {
                 console.log("in here");
                 primaryNav.querySelector("a[href*=" + elem_id + "]").classList.add("active");
             } else {
