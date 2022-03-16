@@ -62,17 +62,21 @@ const elem = document.querySelectorAll("*[id]");
 
 // Add an event listener listening for scroll
 window.addEventListener("scroll", navHighlighter);
+window.addEventListener("click", navHighlighter);
 
 function navHighlighter() {
     elem.forEach(current => {
 
         const bounding = current.getBoundingClientRect();
-        const height = -current.clientHeight;
+        const height = -(current.clientHeight+1);
 
         const elem_id = current.getAttribute("id");
 
         if((elem_id !== "call-action-navigation") && (elem_id !== "primary-navigation") && (elem_id !== "about-us")) {
-            if ((bounding.top >= height) && (bounding.top < 0)) {
+            
+            console.log(bounding.top);
+            
+            if ((bounding.top >= height) && (bounding.top <= 1)) {
                 console.log("in here");
                 primaryNav.querySelector("a[href*=" + elem_id + "]").classList.add("active");
             } else {
