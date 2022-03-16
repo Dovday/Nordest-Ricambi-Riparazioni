@@ -65,7 +65,7 @@ function navHighlighter() {
         if((elem_id !== "call-action-navigation") && (elem_id !== "primary-navigation") && (elem_id !== "about-us")) {           
             if ((bounding.top > height) && (bounding.top < 1.25)) {
                 primaryNav.querySelector("a[href*=" + elem_id + "]").classList.add("active");
-            } else {
+            } else if (primaryNav.querySelector("a[href*=" + elem_id + "]").classList.contains("active")) {
                 primaryNav.querySelector("a[href*=" + elem_id + "]").classList.remove("active");
             }
         }
