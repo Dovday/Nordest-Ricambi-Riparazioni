@@ -62,13 +62,18 @@ function navHighlighter() {
 
         const elem_id = current.getAttribute("id");
 
+        
         if((elem_id !== "call-action-navigation") && (elem_id !== "primary-navigation") && (elem_id !== "about-us")) {           
+            console.log(elem_id);
             if ((bounding.top > height) && (bounding.top < 1.25)) {
                 primaryNav.querySelector("a[href*=" + elem_id + "]").classList.add("active");
-            } else if (primaryNav.querySelector("a[href*=" + elem_id + "]").classList.contains("active")) {
+            } else if (primaryNav.querySelector("a[href*=" + elem_id + "]")) {
                 primaryNav.querySelector("a[href*=" + elem_id + "]").classList.remove("active");
             }
+            console.log(primaryNav.querySelector("a[href*=" + elem_id + "]"));
         }
+
+        console.log("---");
     });
 }
 
